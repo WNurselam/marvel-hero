@@ -23,7 +23,7 @@ export const useCurrentCharacter = () => {
         getCharacter();
     }, []);
 
-    console.log(characters);
+    console.log("Is here ",characters);
     return (
         {
             characters,

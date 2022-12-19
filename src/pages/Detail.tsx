@@ -2,13 +2,14 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import axios from 'axios'
-import comicsModel from '../model/comicModel'
+import characterModel from '../model/charactersModel'
 import { Flex, VStack, Text } from '@chakra-ui/react'
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
+import Comics from '../components/Comics'
 
 const Detail = () => {
-  const [character, setCharacter] = useState<comicsModel[]>([])
+  const [character, setCharacter] = useState<characterModel[]>([])
   const { id } = useParams();
 
   useEffect(() => {
@@ -29,9 +30,10 @@ const Detail = () => {
   console.log(character);
 
   return (
-    <Flex direction="row">
+    <Flex direction="column">
       {
         character && character.map((char) => (   
+          <VStack>
             <LazyLoadImage
               src={char.thumbnail.path + "." + char.thumbnail.extension}
               alt={`image of ${char.name}`}
@@ -41,8 +43,12 @@ const Detail = () => {
                 height: "420px",
               }}
             />
+            <Text>{char.name}</Text>
+            <Text>{char.description}</Text>
+           </VStack>
         ))
       }
+      <Comics/>
     </Flex >
 
   )

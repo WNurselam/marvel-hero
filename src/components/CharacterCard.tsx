@@ -1,5 +1,5 @@
 import React from 'react'
-import characterModel from '../model/characterModel'
+import characterModel from '../model/charactersModel'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Flex, Text, VStack } from '@chakra-ui/react';
@@ -23,7 +23,6 @@ const CharacterCard = ({ character }: CharProps) => {
                             width: "320px",
                             height: "420px",
                         }}
-
                     />
                 </Link>
                 <Text>{character.name}</Text>

@@ -2,7 +2,7 @@ import React from 'react'
 import characterModel from '../model/charactersModel'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Flex, Text, VStack } from '@chakra-ui/react';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, Flex, Heading, Stack, Text, VStack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 
@@ -12,9 +12,9 @@ type CharProps = {
 }
 const CharacterCard = ({ character }: CharProps) => {
     return (
-        <Flex direction="row">
-            <VStack border="1px solid red">
-                <Link to={`/character/${character.id}`} >
+        <Flex direction="row" >
+            <Card m="15" background="gray.800"> 
+                <CardBody>
                     <LazyLoadImage
                         src={character.thumbnail.path + "." + character.thumbnail.extension}
                         alt={`image of ${character.name}`}
@@ -22,11 +22,27 @@ const CharacterCard = ({ character }: CharProps) => {
                         style={{
                             width: "320px",
                             height: "420px",
+                            borderRadius: "15px"
                         }}
                     />
-                </Link>
-                <Text>{character.name}</Text>
-            </VStack>
+                    <Stack>
+                        <Heading size="md" color='#fff'>
+                            {character.name}
+                        </Heading>
+                        
+                    </Stack>
+                </CardBody>
+                <Divider />
+                <Center>
+                <CardFooter>
+                    <Link to={`/character/${character.id}`} >
+                        <Button variant='solid' colorScheme='blue'>
+                            Character Detail
+                        </Button>
+                    </Link>
+                </CardFooter>
+                </Center>
+            </Card>          
         </Flex >
 
     )

@@ -2,7 +2,7 @@ import React from 'react'
 import characterModel from '../model/charactersModel'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Center, Divider, Flex, Heading, Stack, Text, VStack } from '@chakra-ui/react';
+import { Button, Card, CardBody, CardFooter, Center, Divider, Flex, Heading, Stack, Text, VStack } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 
@@ -12,7 +12,7 @@ type CharProps = {
 }
 const CharacterCard = ({ character }: CharProps) => {
     return (
-        <Flex direction="row" >
+        <Flex direction="row" key={character.id} >
             <Card m="15" background="gray.800"> 
                 <CardBody>
                     <LazyLoadImage

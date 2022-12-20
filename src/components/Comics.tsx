@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Comic from '../model/comicsModel';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Flex, VStack, Text, HStack } from '@chakra-ui/react'
+import { Flex, VStack, Text, HStack, Heading, Card, CardBody, CardFooter, Center, SimpleGrid } from '@chakra-ui/react'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Comics = () => {
@@ -22,26 +22,38 @@ const Comics = () => {
         getComics()
     }, [id])
 
-    console.log(comics);
+    console.log("Comics is here", comics);
 
     return (
-        <div>
+
+        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
             {
                 comics?.map((comic) => (
-                    <VStack>  
-                        <LazyLoadImage
-                        src={comic.thumbnail.path + "." + comic.thumbnail.extension}
-                        alt={`image of ${comic.name}`}
-                        effect="blur"
-                        style={{
-                            width: "320px",
-                            height: "420px",
-                        }}
-                    />
-                     <Text color="red">{comic.title}</Text>                 
-                    </VStack>
+                    <Card
+                        maxW='sm'
+                        background="blackAlpha.500"
+                        key={comic.id} >
+                        <CardBody>
+                            <LazyLoadImage
+                                src={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                                alt={`image of ${comic.name}`}
+                                effect="blur"
+                                style={{
+                                    width: "200px",
+                                    height: "300px",
+                                    boxShadow: 'rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'
+                                }}
+                            />
+                        </CardBody>
+                        <CardFooter>
+                            <Text color="white">{comic.title}</Text>
+                        </CardFooter>
+                    </Card>
                 ))
-            }</div>
+
+            }
+        </SimpleGrid>
+
     )
 }
 

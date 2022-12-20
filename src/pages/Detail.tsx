@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import axios from 'axios'
 import characterModel from '../model/charactersModel'
-import { Flex, VStack, Text, Card, Stack, CardBody, Heading, CardFooter, Button } from '@chakra-ui/react'
+import { Flex, VStack, Text, Card, Stack, CardBody, Heading} from '@chakra-ui/react'
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Comics from '../components/Comics'
@@ -28,13 +28,13 @@ const Detail = () => {
     getCharacter();
   }, [id])
 
-  console.log(character);
+  //console.log(character);
 
   return (
-    <Flex direction="column" >
+    <Flex direction="column">
       {
         character && character.map((char) => (
-          <Card background="gray.800" m="15" direction={{ base: 'column', sm: 'row' }}
+          <Card key={char.id} background="gray.800" m="15" direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
           >
             <LazyLoadImage
@@ -57,7 +57,8 @@ const Detail = () => {
           </Card>
         ))
       }
-      <Comics />
+      <Heading m="25">COMİCS</Heading>
+      <Comics/>
     </Flex >
 
   )

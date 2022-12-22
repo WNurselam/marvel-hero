@@ -7,5 +7,4 @@ export default interface Character {
       path: string;
       extension: string;
     };
-
 }

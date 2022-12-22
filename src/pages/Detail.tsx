@@ -34,7 +34,7 @@ const Detail = () => {
     <Flex direction="column">
       {
         character && character.map((char) => (
-          <Card key={char.id} background="gray.800" m="15" direction={{ base: 'column', sm: 'row' }}
+          <Card key={char.id} background="blackAlpha.500" m="15" direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
           >
             <LazyLoadImage

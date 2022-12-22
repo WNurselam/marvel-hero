@@ -6,6 +6,7 @@ import axios from 'axios';
 import { Flex, VStack, Text, HStack, Heading, Card, CardBody, CardFooter, Center, SimpleGrid } from '@chakra-ui/react'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
+
 const Comics = () => {
     const [comics, setComics] = useState<Comic[]>([])
     const { id } = useParams();

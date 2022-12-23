@@ -1,17 +1,23 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 import axios from 'axios'
 import characterModel from '../model/charactersModel'
-import { Flex, VStack, Text, Card, Stack, CardBody, Heading} from '@chakra-ui/react'
+import { Flex, VStack, Text, Card, Stack, CardBody, Heading, Button } from '@chakra-ui/react'
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Comics from '../components/Comics'
-import { WarningTwoIcon } from '@chakra-ui/icons'
+import { WarningTwoIcon, ArrowBackIcon } from '@chakra-ui/icons'
+
 
 const Detail = () => {
+  let Back = useNavigate()
   const [character, setCharacter] = useState<characterModel[]>([])
   const { id } = useParams();
+
+  const arrowBack = () => {
+    Back("/")
+  }
 
   useEffect(() => {
     const getCharacter = async () => {
@@ -32,6 +38,7 @@ const Detail = () => {
 
   return (
     <Flex direction="column">
+      <ArrowBackIcon onClick={arrowBack} w={10} h={10} />
       {
         character && character.map((char) => (
           <Card key={char.id} background="blackAlpha.500" m="15" direction={{ base: 'column', sm: 'row' }}
@@ -58,7 +65,7 @@ const Detail = () => {
         ))
       }
       <Heading m="25">COMİCS</Heading>
-      <Comics/>
+      <Comics />
     </Flex >
 
   )

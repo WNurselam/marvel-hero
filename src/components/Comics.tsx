@@ -23,10 +23,9 @@ const Comics = () => {
         getComics()
     }, [id])
 
-    console.log("Comics is here", comics);
+    //console.log("Comics is here", comics);
 
     return (
-
         <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
             {
                 comics?.map((comic) => (
@@ -51,10 +50,8 @@ const Comics = () => {
                         </CardFooter>
                     </Card>
                 ))
-
             }
         </SimpleGrid>
-
     )
 }
 

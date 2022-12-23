@@ -1,15 +1,15 @@
 import React from 'react'
 import { useCurrentCharacter } from './CurrentCharacter';
 import CharacterCard from './CharacterCard';
-import { Grid } from '@chakra-ui/react';
+import { Center, Flex,Grid,Skeleton,Text } from '@chakra-ui/react';
 
 const CharacterList = () => {
-    const { characters } = useCurrentCharacter();
-     //console.log(characters);
+    const { characters} = useCurrentCharacter();
+    
     return (
-        <Grid templateColumns="4fr 4fr 4fr 4fr" >{characters && characters.map((character) => (         
+        <Flex justifyContent="space-evenly" flexWrap="wrap">{characters && characters.map((character) => (         
             <CharacterCard character={character} key={character.id} />         
-        ))}</Grid>
+        ))}</Flex>
     )
 }
 

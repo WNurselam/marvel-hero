@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Comic from '../model/comicsModel';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Flex, VStack, Text, HStack, Heading, Card, CardBody, CardFooter, Center, SimpleGrid } from '@chakra-ui/react'
+import { Text, Card, CardBody, CardFooter, SimpleGrid } from '@chakra-ui/react'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
@@ -26,13 +26,18 @@ const Comics = () => {
     //console.log("Comics is here", comics);
 
     return (
-        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
+        <SimpleGrid mb="10" spacing={4} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
             {
                 comics?.map((comic) => (
                     <Card
-                        maxW='sm'
+                        maxW='xs'
                         background="blackAlpha.500"
-                        key={comic.id} >
+                        key={comic.id}
+                        _hover={{
+                            boxShadow: "10px 10px 47px 0px rgba(7, 77, 99, 0.5)",
+                            transition: " 500ms"
+                        }}
+                    >
                         <CardBody>
                             <LazyLoadImage
                                 src={comic.thumbnail.path + "." + comic.thumbnail.extension}

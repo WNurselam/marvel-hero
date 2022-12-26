@@ -3,11 +3,13 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import axios from 'axios'
 import characterModel from '../model/charactersModel'
-import { Flex, VStack, Text, Card, Stack, CardBody, Heading, Button } from '@chakra-ui/react'
+import { Flex, VStack, Text, Card, Stack, CardBody, Heading, Button, Divider } from '@chakra-ui/react'
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Comics from '../components/Comics'
 import { WarningTwoIcon, ArrowBackIcon } from '@chakra-ui/icons'
+import SeriesMarvel from '../components/Series'
+
 
 
 const Detail = () => {
@@ -16,7 +18,7 @@ const Detail = () => {
   const { id } = useParams();
 
   const arrowBack = () => {
-    Back("/")
+    Back("/", { replace: false }) 
   }
 
   useEffect(() => {
@@ -41,7 +43,8 @@ const Detail = () => {
       <ArrowBackIcon onClick={arrowBack} w={10} h={10} />
       {
         character && character.map((char) => (
-          <Card key={char.id} background="blackAlpha.500" m="15" direction={{ base: 'column', sm: 'row' }}
+          <Card key={char.id} boxShadow="rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;"
+           background="blackAlpha.500" m="15" direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
           >
             <LazyLoadImage
@@ -65,7 +68,10 @@ const Detail = () => {
         ))
       }
       <Heading m="25">COMİCS</Heading>
-      <Comics />
+      <Comics/>
+      <Divider m="25" />
+      <Heading m="25">SERİES</Heading>
+      <SeriesMarvel/>
     </Flex >
 
   )

@@ -37,15 +37,20 @@ const CharacterCard = ({ character }: CharProps) => {
                 "repeat(2, 1fr)",
             ]}
                 gap={7}></Grid>
-            <Card m="15" background="blackAlpha.500">
+            <Card m="15" background="blackAlpha.500" maxW='xs'
+                _hover={{
+                    boxShadow: "10px 10px 47px 0px rgba(7, 77, 99, 0.5)",
+                    transition: " 500ms"
+                }}
+            >
                 <CardBody>
                     <LazyLoadImage
                         src={character.thumbnail.path + "." + character.thumbnail.extension}
                         alt={`image of ${character.name}`}
                         effect="blur"
                         style={{
-                            width: "320px",
-                            height: "420px",
+                            width: "270px",
+                            height: "320px",
                             borderRadius: "15px"
                         }}
                     />

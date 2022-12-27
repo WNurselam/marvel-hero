@@ -1,13 +1,13 @@
 import React from 'react'
-import { Text} from '@chakra-ui/react'
+import { Box} from '@chakra-ui/react'
 import CharacterList from '../components/CharacterList'
 
 const Home = () => {  
   return (
-    <Text>
+    <Box>
       <CharacterList/>
-    </Text>
+    </Box>
   )
 }
 
-export default Home
+export default Home;

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import axios from 'axios'
 import characterModel from '../model/charactersModel'
-import { Flex, VStack, Text, Card, Stack, CardBody, Heading, Button, Divider } from '@chakra-ui/react'
+import { Flex, Text, Card, Stack, CardBody, Heading, Divider} from '@chakra-ui/react'
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import Comics from '../components/Comics'
@@ -58,11 +58,12 @@ const Detail = () => {
             />
             <Stack>
               <CardBody>
-                <Heading color="whatsapp.200" size='md'>{char.name}</Heading>
-                <Text py='2' color="whatsapp.200">
+                <Heading m="4" color="whatsapp.200" size='lg'>{char.name}</Heading>
+                <Text py='2' m="4" color="whatsapp.200">
                   {char.description ? char.description : <Text>This Character has not description <WarningTwoIcon w={8} h={8} color="red.500" /> </Text>}
                 </Text>
               </CardBody>
+               
             </Stack>
           </Card>
         ))

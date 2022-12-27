@@ -34,7 +34,7 @@ const Comics = () => {
                         background="blackAlpha.500"
                         key={comic.id}
                         _hover={{
-                            boxShadow: "10px 10px 47px 0px rgba(7, 77, 99, 0.5)",
+                            boxShadow: "10px 10px 47px 0px rgba(99, 99, 99, 0.5)",
                             transition: " 500ms"
                         }}
                     >

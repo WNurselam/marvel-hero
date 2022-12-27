@@ -2,10 +2,9 @@ import React from 'react'
 import characterModel from '../model/charactersModel'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Button, Card, CardBody, CardFooter, Center, Divider, Flex, Heading, Stack, Grid, Skeleton } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Card, CardBody, CardFooter, Center, Divider, Flex, Heading, Stack, Grid, Skeleton } from '@chakra-ui/react';
 import { useCurrentCharacter } from './CurrentCharacter';
-
+import UseModal from './Modal';
 
 
 type CharProps = {
@@ -37,10 +36,11 @@ const CharacterCard = ({ character }: CharProps) => {
                 "repeat(2, 1fr)",
             ]}
                 gap={7}></Grid>
-            <Card m="15" background="blackAlpha.500" maxW='xs'
+            <Card m="4" background="blackAlpha.500" width="xs"
                 _hover={{
-                    boxShadow: "10px 10px 47px 0px rgba(7, 77, 99, 0.5)",
-                    transition: " 500ms"
+                    boxShadow: "10px 10px 47px 0px rgba(99, 99, 99, 0.5)",
+                    transition: "400ms"
+
                 }}
             >
                 <CardBody>
@@ -63,11 +63,7 @@ const CharacterCard = ({ character }: CharProps) => {
                 <Divider />
                 <Center>
                     <CardFooter>
-                        <Link to={`/character/${character.id}`} >
-                            <Button variant='solid' colorScheme='blue'>
-                                Character Detail
-                            </Button>
-                        </Link>
+                        <UseModal character={character} />
                     </CardFooter>
                 </Center>
             </Card>

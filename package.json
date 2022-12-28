@@ -1,5 +1,5 @@
 {
-  "name": "food-search",
+  "name": "marvel-hero",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +12,7 @@
     "@chakra-ui/icons": "^2.0.14",
     "@chakra-ui/modal": "^2.2.6",
     "@chakra-ui/react": "^2.4.2",
+    "@chakra-ui/styled-system": "^2.5.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "axios": "^1.2.0",

@@ -4,7 +4,8 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Card, CardBody, CardFooter, Center, Divider, Flex, Heading, Stack, Grid, Skeleton } from '@chakra-ui/react';
 import { useCurrentCharacter } from './CurrentCharacter';
-import UseModal from './Modal';
+import CreateModal from './CreateModal';
+
 
 
 type CharProps = {
@@ -63,7 +64,7 @@ const CharacterCard = ({ character }: CharProps) => {
                 <Divider />
                 <Center>
                     <CardFooter>
-                        <UseModal character={character} />
+                        <CreateModal character={character}/>
                     </CardFooter>
                 </Center>
             </Card>

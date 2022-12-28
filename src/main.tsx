@@ -2,11 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
+import { modalTheme } from './components/modal';
+
 
 const theme = extendTheme({
   fonts: {
     body: ` 'Aclonica', sans-serif;`,
     heading: `'Aclonica', sans-serif;`,
+  },
+  components:{
+    Modal:modalTheme
   },
   styles: {
     global: {
@@ -17,6 +22,8 @@ const theme = extendTheme({
     },
   },
 });
+
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <ChakraProvider theme={theme}>
     <App />

@@ -13,27 +13,48 @@ import {
 import characterModel from '../model/characterModel';
 import { WarningTwoIcon } from '@chakra-ui/icons';
 
+import { modalAnatomy as parts } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/styled-system'
+
+const { defineMultiStyleConfig } = createMultiStyleConfigHelpers(parts.keys)
+
+export const modalTheme = defineMultiStyleConfig({
+    defaultProps: {
+        size: 'xl',
+        variant: 'purple',
+    },
+})
 
 type CharProps = {
     character: characterModel
 }
 
-const UseModal = ({ character }: CharProps) => {
+const CreateModal = ({ character }: CharProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
+
+    const OverlayOne = () => (
+        <ModalOverlay
+            bg='blackAlpha.300'
+            backdropFilter='blur(10px) hue-rotate(90deg)'
+        />
+    )
+
+    const [overlay, setOverlay] = React.useState(<OverlayOne />)
+
     return (
-        <Text background="blue">
+        <Box>
             <Button variant='solid' colorScheme='blue' onClick={onOpen}>Character About</Button>
-            <Modal size="xl" variant="red" isOpen={isOpen} onClose={onClose} >
+            <Modal isCentered size="md" colorScheme="red" isOpen={isOpen} onClose={onClose} >
                 <ModalOverlay />
                 <Button onClick={onOpen}>Open</Button>
-                <ModalOverlay />
+                {overlay}
                 <ModalContent>
-                    <ModalHeader color="blackAlpha.600">{character.name}</ModalHeader>
-                    <ModalCloseButton color="blackAlpha.800" />
-                    <ModalBody color="blackAlpha.800">
+                    <ModalHeader color="whatsapp.700">{character.name}</ModalHeader>
+                    <ModalCloseButton color="white" />
+                    <ModalBody color="white">
                         {character.description ? character.description : <Text>This Character has not description <WarningTwoIcon w={5} h={5} color="red.500" /> </Text>}
-                        <Text color='gray.600' mt="4"><Text color='blackAlpha.800' as="span">Modified</Text>: {character.modified}</Text>
+                        <Text color="white" mt="4"><Text color='whatsapp.400' as="span">Modified</Text>: {character.modified}</Text>
                     </ModalBody>
                     <ModalFooter>
                         <Button colorScheme='blue' mr={3} onClick={onClose}>
@@ -47,8 +68,8 @@ const UseModal = ({ character }: CharProps) => {
                     </ModalFooter>
                 </ModalContent>
             </Modal>
-        </Text>
+        </Box>
     )
 }
 
-export default UseModal
+export default CreateModal;

@@ -2,15 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
-import { ColorModeProvider } from "@chakra-ui/color-mode"
-
-
+import { modalTheme } from './theme/modal'
 
 
 const theme = extendTheme({
   fonts: {
     body: ` 'Aclonica', sans-serif;`,
     heading: `'Aclonica', sans-serif;`,
+  },
+  components: {
+    Modal: modalTheme
   },
   styles: {
     global: {

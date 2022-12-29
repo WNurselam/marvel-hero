@@ -64,7 +64,7 @@ const CharacterCard = ({ character }: CharProps) => {
                 <Divider />
                 <Center>
                     <CardFooter>
-                        <CreateModal character={character}/>
+                    <CreateModal character={character}/>
                     </CardFooter>
                 </Center>
             </Card>

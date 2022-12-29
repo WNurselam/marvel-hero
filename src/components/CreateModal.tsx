@@ -45,12 +45,12 @@ const CreateModal = ({ character }: CharProps) => {
     return (
         <Box>
             <Button variant='solid' colorScheme='blue' onClick={onOpen}>Character About</Button>
-            <Modal isCentered size="md" colorScheme="red" isOpen={isOpen} onClose={onClose} >
+            <Modal isCentered size="md" colorScheme="#2D3748" isOpen={isOpen} onClose={onClose} >
                 <ModalOverlay />
                 <Button onClick={onOpen}>Open</Button>
                 {overlay}
                 <ModalContent>
-                    <ModalHeader color="whatsapp.700">{character.name}</ModalHeader>
+                    <ModalHeader color="whatsapp.600">{character.name}</ModalHeader>
                     <ModalCloseButton color="white" />
                     <ModalBody color="white">
                         {character.description ? character.description : <Text>This Character has not description <WarningTwoIcon w={5} h={5} color="red.500" /> </Text>}

@@ -21,8 +21,10 @@ const CreateModal = ({ character }: CharProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const OverlayOne = () => (
         <ModalOverlay
-            bg='blackAlpha.300'
-            backdropFilter='blur(10px) hue-rotate(90deg)'
+        bg='none'
+        backdropFilter='blur(1px) hue-rotate(90deg)'
+        backdropInvert='80%'
+        backdropBlur='1px'
         />
     )
     const [overlay, setOverlay] = React.useState(<OverlayOne />)

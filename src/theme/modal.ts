@@ -12,9 +12,9 @@ const baseStyle = definePartsStyle((props) => {
   return {
     dialog: {
       borderRadius: "md",
-      bg: `${c}.100`,
+      bg: `${c}.200`,
       _dark: {
-        bg: `${c}.600`,
+        bg: "rgb(1, 22, 39)",
         color: "white",
       },
     },
@@ -41,7 +41,7 @@ export const modalTheme = defineMultiStyleConfig({
   baseStyle,
   sizes,
   defaultProps: {
-    colorScheme: "#2D3748", //set the default color scheme to purple
+    colorScheme: "rgb(1, 22, 39)", 
     size: "xl",
   },
 });

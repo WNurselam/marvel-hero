@@ -45,7 +45,7 @@ const SeriesMarvel = () =>{
                             style={{
                                 width: "200px",
                                 height: "300px",
-                                boxShadow: "10px 10px 47px 0px rgba(99, 99, 99, 0.5)"
+                                
                             }} />
                     </CardBody>
                     <CardFooter>

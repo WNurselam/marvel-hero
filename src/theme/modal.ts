@@ -9,7 +9,6 @@ const purple = definePartsStyle({
     borderRadius: 'md',
     bg: `rgb(1, 22, 39)`,
 
-    // Let's also provide dark mode alternatives
     _dark: {
       bg: `rgb(1, 22, 39)`,
       color: 'white',
@@ -21,4 +20,4 @@ export const modalTheme = defineMultiStyleConfig({
   variants: { purple },
 })
 
-// Now we can use the new `purple` variant
+

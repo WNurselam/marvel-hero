@@ -1,13 +1,13 @@
 import React from 'react'
 import { Center } from '@chakra-ui/react'
-import Logo from '../assets/marvel.jpg';
+import Logo from '../assets/marvel-face.png';
 import { Image } from '@chakra-ui/react'
 
 
 function Header() {
   return (
     <Center>
-      <Image src={Logo} height="150px" />
+      <Image src={Logo} height="140px" width="1400px" />
     </Center>
   )
 }

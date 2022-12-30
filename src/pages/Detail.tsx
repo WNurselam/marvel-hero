@@ -68,10 +68,10 @@ const Detail = () => {
           </Card>
         ))
       }
-      <Heading m="25">COMİCS</Heading>
+      <Heading m="25">COMICS</Heading>
       <Comics/>
       <Divider m="25" />
-      <Heading m="25">SERİES</Heading>
+      <Heading m="25">SERIES</Heading>
       <SeriesMarvel/>
     </Flex >
 

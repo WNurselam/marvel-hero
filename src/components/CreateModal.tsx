@@ -31,7 +31,7 @@ const CreateModal = ({ character }: CharProps) => {
     return (
         <Box>
             <Button variant='solid' colorScheme='blue' onClick={onOpen}>Character About</Button>
-            <Modal isCentered size="md" isOpen={isOpen} onClose={onClose} >
+            <Modal isCentered size="md" variant="purple" isOpen={isOpen} onClose={onClose} >
                 <ModalOverlay />
                 <Button onClick={onOpen}>Open</Button>
                 {overlay}

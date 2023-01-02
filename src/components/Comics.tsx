@@ -11,6 +11,7 @@ import { WarningTwoIcon } from '@chakra-ui/icons';
 const Comics = () => {
     const [comics, setComics] = useState<Comic[]>([])
     const { id } = useParams();
+    
 
     useEffect(() => {
         const getComics = async () => {
@@ -23,6 +24,8 @@ const Comics = () => {
         }
         getComics()
     }, [id])
+
+   
 
     //console.log("Comics is here", comics);
 
@@ -40,7 +43,7 @@ const Comics = () => {
                             
                         }}
                         boxShadow='dark-lg'  rounded='md' 
-                        
+                        maxHeight="420px"
                     >
                         <CardBody>
                             <LazyLoadImage

@@ -39,6 +39,8 @@ const SeriesMarvel = () =>{
                         scaleFadeConfig:"25px"
                     }}
                     boxShadow='dark-lg'  rounded='md' 
+                    maxHeight="450px"
+                   overflow="hidden"
                   
                     >
                     <CardBody>

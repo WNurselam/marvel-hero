@@ -43,7 +43,7 @@ const Comics = () => {
                             
                         }}
                         boxShadow='dark-lg'  rounded='md' 
-                        maxHeight="420px"
+                       
                     >
                         <CardBody>
                             <LazyLoadImage

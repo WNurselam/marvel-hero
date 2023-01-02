@@ -3,8 +3,9 @@ import { useParams } from 'react-router'
 import { useState, useEffect } from 'react';
 import Series from '../model/seriesModel';
 import axios from 'axios';
-import { Card, CardBody, CardFooter, SimpleGrid,Text } from '@chakra-ui/react';
+import { Card, CardBody, CardFooter, Center, SimpleGrid,Text, scaleFadeConfig } from '@chakra-ui/react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { WarningTwoIcon } from '@chakra-ui/icons';
 
 const SeriesMarvel = () =>{
     const [series, setSeries] = useState<Series[]>([]);
@@ -26,16 +27,19 @@ const SeriesMarvel = () =>{
 
  //console.log("Series is here", series);
     return (
-        <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
-            {series?.map((serie) => (
+        <SimpleGrid spacing={8} templateColumns='repeat(auto-fill, minmax(250px, 1fr))'>
+            { series && series.length>0 ? series.map((serie) => (
                 <Card
-                    maxW='xs'
+                    maxW='sm'
                     background="blackAlpha.500"
                     key={serie.id}
                     _hover={{
                         boxShadow: "10px 10px 47px 0px rgba(7, 77, 99, 0.5)",
-                        transition: " 500ms"
+                        transition: " 500ms",
+                        scaleFadeConfig:"25px"
                     }}
+                    boxShadow='dark-lg'  rounded='md' 
+                  
                     >
                     <CardBody>
                         <LazyLoadImage
@@ -47,12 +51,10 @@ const SeriesMarvel = () =>{
                                 height: "300px",
                                 
                             }} />
+                             <Text mt="3" color="white">{serie.title}</Text>
                     </CardBody>
-                    <CardFooter>
-                        <Text color="white">{serie.title}</Text>
-                    </CardFooter>
                 </Card>
-            ))}
+            )):<Text textAlign="center">There are no series with this character <WarningTwoIcon w={8} h={8} color="red.500" /> </Text>}
         </SimpleGrid>
     );
 }

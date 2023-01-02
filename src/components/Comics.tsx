@@ -3,8 +3,9 @@ import { useState, useEffect } from 'react'
 import Comic from '../model/comicsModel';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Text, Card, CardBody, CardFooter, SimpleGrid } from '@chakra-ui/react'
+import { Text, Card, CardBody, CardFooter, SimpleGrid, Center } from '@chakra-ui/react'
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { WarningTwoIcon } from '@chakra-ui/icons';
 
 
 const Comics = () => {
@@ -26,17 +27,20 @@ const Comics = () => {
     //console.log("Comics is here", comics);
 
     return (
-        <SimpleGrid mb="10" spacing={4} templateColumns='repeat(auto-fill, minmax(300px, 1fr))'>
+        <SimpleGrid mb="10" spacing={8} templateColumns='repeat(auto-fill, minmax(250px, 1fr))'>
             {
-                comics?.map((comic) => (
+             comics &&  comics.length >0 ? comics.map((comic) => (
                     <Card
-                        maxW='xs'
+                        maxW='sm'
                         background="blackAlpha.500"
                         key={comic.id}
                         _hover={{
                             boxShadow: "10px 10px 47px 0px rgba(99, 99, 99, 0.5)",
-                            transition: " 500ms"
+                            transition: " 500ms",
+                            
                         }}
+                        boxShadow='dark-lg'  rounded='md' 
+                        
                     >
                         <CardBody>
                             <LazyLoadImage
@@ -49,12 +53,10 @@ const Comics = () => {
                                     boxShadow: 'rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px'
                                 }}
                             />
+                             <Text mt="3" color="white">{comic.title}</Text>
                         </CardBody>
-                        <CardFooter>
-                            <Text color="white">{comic.title}</Text>
-                        </CardFooter>
                     </Card>
-                ))
+                )):<Center>There are no comics in this character <WarningTwoIcon w={8} h={8} color="red.500" /></Center>
             }
         </SimpleGrid>
     )

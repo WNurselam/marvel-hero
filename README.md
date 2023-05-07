@@ -23,6 +23,7 @@ Listing Marvel characters and listing the listed character's comics and series.
 - React Router
 - Axios
 - Custom Hooks
+- React Lazy Load Image
 
 ## Api
 
